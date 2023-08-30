@@ -13,31 +13,34 @@
 # 4 -> 1 2 3 4
 # 9
 
-n = 4
-# n = int(input("Введите количество кустов на грядке: "))
+# n = 4
+n = int(input("Введите количество кустов на грядке: "))
 
 while n < 3:
-    print("кустов дожно быть 3 и больше ")
+    print("кустов должно быть 3 или больше ")
     n = int(input("Введите количество кустов на грядке: "))
 
-str_count = "1 2 3 4"
-# str_count = input(f"Введите через пробел количество ягод на каждом кусту: ")
+# str_count = "1 2 3 4"
+str_count = input(f"Введите через пробел количество ягод на каждом кусту: ")
 
 gardenbed = str_count.split()
 gardenbed = list(map(int, gardenbed))
 
 while len(gardenbed) != n:
     gardenbed = []
-    print("кустов дожно быть ", n)
+    print("кустов должно быть ", n)
     str_count = input(f"Введите через пробел количество ягод на каждом кусту: ")
     gardenbed = str_count.split()
     gardenbed = list(map(int, gardenbed))
 
 max_berry = 0 
-for i in range(len(gardenbed)):
-    berry = sum([gardenbed[i-2],gardenbed[i-1],gardenbed[i]])
-    if berry > max_berry:
-        max_berry = berry
+if n == 3:
+    max_berry = sum(gardenbed)
+else:
+    for i in range(len(gardenbed)):
+        berry = sum([gardenbed[i-2],gardenbed[i-1],gardenbed[i]])
+        if berry > max_berry:
+            max_berry = berry
 
 print(max_berry)
 
