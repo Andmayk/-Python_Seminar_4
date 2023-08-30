@@ -11,3 +11,29 @@
 
 # set1 = {2, 4, 6, 8, 10, 12, 10, 8, 6, 4, 2}
 # set2 = {3, 6, 9, 12, 15, 18}
+
+str_count = input("Введите через пробел количество чисел в двух наборах: ")
+my_list = []
+my_list = str_count.split()
+my_list = list(map(int, my_list))
+
+str1 = input(f"Введите {my_list[0]} чисел первого набора через пробел: ")
+set1 = set(str1.split())
+
+str2 = input(f"Введите {my_list[1]} чисел второго набора через пробел: ")
+set2 = set(str2.split())
+
+inter_section = set1.intersection(set2)
+
+print("set1: ", set1)
+print("set2: ", set2)
+print("Пересечение: ", inter_section)
+
+# на случай если множество получилось не отсортированное
+
+sorted_list = []
+
+sorted_list = list(inter_section)
+
+sorted_list.sort()
+print(sorted_list)
